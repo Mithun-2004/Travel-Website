@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior : smooth;
+}
+body{
+    color-scheme : dark;
+    background-color : #0A0A0A;
+    color : #eee;
+    overflow-x : hidden;
+}
+:root {
+    --swiper-navigation-color: #eee;
+}
+
+/*Home Page */
+#home-container{
+    height : 100vh;
+    background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./images/background2.jpg');
+    background-position: center;
+    background-size : cover;
+    background-repeat: no-repeat;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    animation : backgroundChange 30s linear infinite;
+}
+
+@keyframes backgroundChange{
+    20%{
+        background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./images/background3.jpg');
+    }
+    40%{
+        background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./images/background4.jpg');
+    }
+    60%{
+        background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./images/background5.jpg');
+    }
+    80%{
+        background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./images/background6.jpg');
+    }
+    100%{
+        background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./images/background2.jpg');
+    }
+}
+
+.hero{
+    margin-left : 10%;
+}
+.hero h1{
+    font-weight : 500;
+    font-size : 2.5rem;
+    margin-bottom : 10px;
+}
+.hero p{
+    margin-bottom : 30px;
+    max-width : 600px;
+    color : #ccc;
+}
+#more-btn{
+    color : #eee;
+    text-decoration: none;
+    background-color : hsla(0, 0%, 100%, .2);
+    padding : 10px 20px;
+    transition : 0.5s ease;
+}
+#more-btn:hover{
+    background-color : hsla(0, 0%, 100%, .5);
+    color : #0A0A0A;
+}
+
+/* Start of Navbar */
+.navbar{
+    position : fixed;
+    top : 0;
+    left : 0;
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+    width : 100%;
+    padding : 10px 10%;
+}
+.logo-link{
+    text-decoration : none;
+    color : #eee;
+}
+.logo h2{
+    font-weight : 500;
+    font-family: 'Allura', cursive;
+    font-size : 2.5rem;
+}
+.logo h2 span{
+    font-size : 2.5rem;
+    color : #fddc5c;
+    font-family: 'Allura', cursive;
+}
+.nav li{
+    display : inline-block;
+}
+.nav li:not(:last-of-type){
+    margin-right : 25px;
+}
+.nav li a{
+    text-decoration : none;
+    color : #eee;
+    position : relative;
+}
+.nav li a::after{
+    content : '';
+    position : absolute;
+    height : 2px;
+    width : 0;
+    bottom : -5px;
+    left : 5px;
+    background-color: #eee;
+    transition : 0.5s ease;
+}
+.nav li a:hover::after{
+    width : 100%;
+}
+.nav li a:active{
+    color : #fddc5c;
+}
+.bars{
+    font-size : 1rem;
+    padding : 5px;
+    background: transparent;
+    border : 0;
+    outline : 0;
+    cursor : pointer;
+    transition : 0.5s ease;
+    display : none;
+}
+.bars:hover{
+    transform : scale(1.15);
+}
+.active{
+    background : rgba(255, 255, 255, 0.8);
+    z-index : 100;
+}
+.active h2{
+    color : #fddc5c;
+    font-weight : 600;
+}
+.active h2 span, .active .bars, .active .active-link{
+    color : #0A0A0A;
+}
+.active .active-link::after{
+    background-color: #0A0A0A;
+}
+/*End of Navbar */
+
+/* About Section */
+#about-container{
+    min-height : 100vh;
+    background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./images/background3.jpg');
+    background-position: center;
+    background-size : cover;
+    background-repeat: no-repeat;
+    display : flex;
+    align-items : center;
+    justify-content : flex-start;
+    gap : 30px;
+    padding: 10% 0;
+}
+.about-info{
+    margin-left : 10%;
+    margin-right : 10%;
+    padding-top : 5%;
+    display : flex;
+    justify-content: flex-start;
+    align-items : center;
+    flex-wrap : wrap;
+    gap : 30px;
+}
+.about-subtitle{
+    font-size : 1.5rem;
+    font-family: "Allura", cursive;
+    color : #fddc5c;
+}
+.about-title{
+    font-weight : 500;
+    margin-bottom : 20px;
+    font-size : 2.5rem;
+}
+#video-link{
+    display : inline-flex;
+    text-decoration : none;
+    color : #eee;
+    gap : 15px;
+    align-items : center;
+    font-size : 1.2rem;
+    margin-bottom : 15px;
+    transition : 0.5s ease;
+}
+#video-link:hover{
+    color : #fddc5c;
+}
+.about-description{
+    line-height : 1.5;
+    max-width : 500px;
+    color : #ccc;
+    text-align : justify;
+}
+.about-video{
+   text-align : center;
+}
+iframe{
+    margin-top : 30px;
+    width : 400px;
+    height : 250px;
+    border : 0;
+    outline : 0;
+    border-radius : 10px;
+    transition : 0.5s ease;
+}
+iframe:hover{
+    transform : scale(1.03);
+}
+
+/* Place Section */
+#places-container{
+    min-height : 100vh;
+    background-image : linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('./images/background5.jpg');
+    background-position: center;
+    background-size : cover;
+    background-repeat: no-repeat;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    gap : 30px;
+}
+.places-main{
+    margin : 10%;
+    text-align : center;
+}
+.places-subtitle{
+    font-size : 1.5rem;
+    font-family: "Allura", cursive;
+    color : #fddc5c;
+}
+.places-title{
+    font-weight : 500;
+    font-size : 2.5rem;
+    margin-bottom : 30px;
+}
+.box-container{
+    display : flex;
+    align-items : center;
+    justify-content: center;
+    flex-wrap : wrap;
+    gap : 30px;
+}
+.box{
+    width : 280px;
+    height : 180px;
+    overflow : hidden;
+    position : relative;
+    cursor : pointer;
+    border-radius : 10px;
+    border : 5px solid #eee;
+}
+.zoomin{
+    width : 275px;
+    height : 175px;
+    transition : 1s ease;
+}
+.box:hover .zoomin{
+    transform : scale(2);
+}
+.box-content{
+    position : absolute;
+    top : -100%;
+    left : 0;
+    height : 100%;
+    width : 100%;
+    padding : 10px;
+    text-align : center;
+    background-color : hsla(0, 0%, 100%, .2);
+    backdrop-filter: blur(24px);
+    --webkit-backdrop-filter : blur(24px);
+    color : #0A0A0A;
+    transition : 1s ease;
+}
+.box:hover .box-content{
+    top : 0;
+}
+.box-content h1{
+    font-size : 1rem;
+    font-weight : 600;
+}
+.box-content p{
+    color : #222;
+}
+
+/* Packages Container */
+#packages-container{
+    min-height : 100vh;
+    background-image : linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./images/background6.jpg');
+    background-repeat : no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+.packages-main{
+    width : 80%;
+    margin : 0 auto;
+    padding : 5% 0 5% 0;
+    text-align : center;
+}
+.packages-subtitle{
+    font-size : 1.5rem;
+    font-family: "Allura", cursive;
+    color : #fddc5c;
+}
+.packages-title{
+    font-weight : 500;
+    font-size : 2.5rem;
+}
+.packages-description{
+    margin : 20px auto;
+    max-width : 600px;
+    color : #ccc;
+    line-height : 1.5;
+}
+
+/* Carousel */
+.package-swiper{
+    width : 80%;
+    margin : 50px auto 0;
+}
+.package-card{
+    overflow: hidden;
+    position : relative;
+    border-radius : 5px;
+}
+.package-card-img{
+    width : 100%;
+    height : 500px;
+    border-radius: 5px;
+}
+.package-details{
+    position : absolute;
+    top : 0;
+    left : 0;
+    background : rgba(0, 0, 0, 0.5);
+    padding : 20px;
+    text-align : left;
+    width : 100%;
+    height : 100%;
+}
+.package-card-title{
+    font-weight : 500;
+    font-size : 1.5rem;
+    text-align : left;
+}
+.package-card-duration, .package-card-price{
+    color : #ccc;
+}
+.view-details-btn{
+    color : #fddc5c;
+    text-decoration : none;
+    display: inline-block;
+    margin-top : 10px;
+    border : 2px solid #fddc5c;
+    padding : 5px 10px;
+    border-radius : 5px;
+    transition : 0.7s ease;
+}
+.view-details-btn:hover{
+    color : #0A0A0A;
+    background-color: #fddc5c;
+}
+/* Contact Section */
+#contact-container{
+    min-height : 100vh;  
+    background-image : linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./images/background4.jpg');
+    background-repeat : no-repeat;
+    background-size: cover;
+    background-position: center;   
+}
+.contact-main{
+    width : 80%;
+    margin :  auto;
+    padding : 5% 0 5% 0;
+    text-align : center;
+}
+.contact-subtitle{
+    font-size : 1.5rem;
+    font-family: "Allura", cursive;
+    color : #fddc5c;
+}
+.contact-title{
+    font-weight : 500;
+    font-size : 2.5rem;
+}
+.contact-title-logo{
+    margin-left : 5px;
+    color : #fddc5c;
+    font-family: 'Allura', cursive;
+    font-size : 3rem;
+}
+.contact-title-logo span{
+    color : #fff;
+    font-family: 'Allura', cursive;
+}
+.contact-details{
+    margin-top : 50px;
+    margin-bottom : 60px;
+    display : flex;
+    flex-direction : center;
+    align-items : center;
+    flex-wrap : wrap;
+    gap : 20px;
+}
+.contact-info{
+    width : 200px;
+    height : 150px;
+    padding : 20px;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    flex-direction : column;
+    margin : auto;
+    border : 2px solid #fddc5c;
+    color : #ccc;
+}
+.contact-logo{
+    color : #fddc5c;
+    font-size : 1.75rem;
+}
+.contact-info h3{
+    font-weight : 600;
+    color : #fddc5c;
+    margin-bottom : 10px;
+}
+.form-title{
+    font-weight : 600;
+    font-size : 1.25rem;
+}
+#contact-container form{
+    max-width : 600px;
+    margin : auto;
+}
+#contact-container form input, form textarea{
+    display : block;
+    width : 100%;
+    padding : 10px 25px;
+    font-size : 1rem;
+    margin : 20px auto;
+    border : 0;
+    outline : 0;
+    border-radius : 5px;
+}
+#contact-container form textarea{
+    height : 200px;
+    resize : none;
+}
+#contact-container form button{
+    padding : 10px 25px;
+    margin : 20px auto;
+    border : 2px solid #fddc5c;
+    outline : 0;
+    border-radius : 5px;
+    cursor : pointer;
+    background-color: #fddc5c;
+    color : #0A0A0A;
+    font-weight : 600;
+    transition : 0.7s ease;
+}
+#contact-container form button:hover{
+    color : #fddc5c;
+    background-color: transparent;
+    border : 2px solid #fddc5c;
+}
+.contact-links-title{
+    font-weight : 500;
+    font-size : 1rem;
+    margin : 30px auto 10px;
+}
+.contact-links li{
+    list-style: none;
+    display : inline-block;
+    margin-right : 20px;
+}
+.contact-links li a{
+    text-decoration : none;
+    color : #fddc5c;
+    transition : 0.5s ease;
+}
+.contact-links li a:hover{
+    color : #eee;
+}
+.fa-brands{
+    font-size: 2.25rem;
+}
+
+/* Staffs Section */
+#staffs-container{
+    min-height : 100vh;
+    background-image : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background11.jpg');
+    background-repeat : no-repeat;
+    background-size: cover;
+    background-position: center;  
+}
+.staffs-main{
+    width : 80%;
+    margin : 0 auto;
+    padding : 5% 0 0 0;
+    text-align : center;
+}
+.staffs-subtitle{
+    font-size : 1.5rem;
+    font-family: "Allura", cursive;
+    color : #fddc5c;
+}
+.staffs-title{
+    font-weight : 500;
+    font-size : 2.5rem;
+}
+.swiper-container{
+    width : 90%;
+    margin : auto;
+    margin-top : 50px;
+    overflow : hidden;
+    padding : 10px;
+    cursor : grab;
+}
+.staffs-wrapper{
+    display : flex;
+    align-items : center;
+}
+.staffs-box{
+    background-color: #eee;
+    padding : 20px;
+    margin : auto;
+    border-radius : 10px;
+}
+.staffs-box img{
+    height : 125px;
+    width : 125px;
+    border-radius: 50%;
+}
+.staff-name{
+    color : #fddc5c;
+}
+.staff-role{
+    color : #0A0A0A;
+    padding-bottom: 10px;
+    border-bottom : 2px solid #fddc5c;
+}
+.staff-review{
+    color : #444;
+    margin-top : 10px;
+    text-align: left;
+}
+.stars{
+    margin-top : 10px;
+    color : #fddc5c;
+}
+
+/* Footer */
+footer{
+    margin-top : 30px;
+    padding : 20px;
+    background-color: hsla(0, 0%, 100%, .2);
+    backdrop-filter: blur(24px);
+    --webkit-backdrop-filter : blur(24px);
+    text-align : center;
+}
+.footer-logo{
+    margin-bottom : 20px;
+    font-family: "Allura", cursive;
+    font-size : 3rem;
+}
+.footer-logo span{
+    font-family : "Allura", cursive;
+    color : #0A0A0A;
+}
+.footer-links{
+    list-style : none;
+    margin : auto;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    flex-wrap : wrap;
+    gap : 10px;
+}
+   
+.footer-links li a{
+    color : #eee;
+    font-size : 0.9rem;
+    text-decoration: none;
+    transition : 0.5s ease;
+}
+.footer-links li a:hover{
+    color : #d8b115;
+}
+
+#packages-container, #contact-container, #staffs-container{
+    display : flex;
+    align-items : center;
+}
+
+/*Media Query for navbar */
+@media screen and (max-width: 1023px){
+    .nav{
+        position : absolute;
+        top : 0;
+        left : -100%;
+        height : 100vh;
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        flex-direction: column;
+        background-color : hsla(0, 0%, 100%, .2);
+        backdrop-filter: blur(24px);
+        --webkit-backdrop-filter: blur(24px);
+        width : 70vw;
+        transition : 0.5s ease;
+        z-index : 100;
+    }
+    .nav li{
+        font-size : 1.25rem;
+        margin-bottom : 20px;
+        text-align : center;
+    }
+    .bars{
+        display : block;
+    }
+    .logo h2, .logo h2 span{
+        font-size : 2rem;
+    }
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1023px){
+    .hero, .about-info{
+        width : 80%;
+        margin : auto;
+    }
+    .hero h1, .about-title, .places-title, .packages-title, .contact-title, .staffs-title{
+        font-size : 2rem;
+    }
+    .box-container{
+        gap : 20px;
+    }  
+    .package-card-img{
+        height : 400px;
+    }
+    .package-card-title{
+        font-size : 1.25rem;
+    }
+}
+
+@media only screen and (max-width : 600px){
+    .hero, .about-info, .places-info{
+        width : 80%;
+        margin : auto;
+        text-align : center;
+    }
+    #home-container{
+        justify-content: center;
+        margin : auto;
+    }
+    #about-container{
+        justify-content : center;
+    }
+    .about-description{
+        text-align : center;
+    }
+    .hero h1, .about-title, .places-title, .packages-title, .contact-title, .staffs-title{
+        font-size : 1.75rem;
+    }
+    .package-card-img{
+        height : 300px;
+    }
+    .view-details-btn{
+        position : absolute;
+        bottom : 10px;
+        right : 10px;
+        font-size : 0.8rem;
+        margin : 10px;
+    }
+}
+
+@media only screen and (max-width : 450px){
+    .navbar{
+        padding : 10px;
+    }
+    #about-container{
+        flex-direction : column;
+        justify-content: center;
+    }
+    .about-info{
+        margin : 10px;
+    }
+    iframe{
+        width : 90%;
+        height : 150px;
+    }
+    .places-main{
+        margin : 10px;
+    }
+    .box{
+        width : 90%;
+    }
+    .contact-main{
+        width : 95%;
+    }
+    .staffs-main{
+        width : 95%;
+    }
+}

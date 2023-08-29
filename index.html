@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Inspiring Routes</title>
+    <link rel="icon" href="./images/favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;500;600;700&display=swap');
+        /* Intro Animation */
+        .intro{
+            position : fixed;
+            z-index : 1;
+            left : 0;
+            top : 0;
+            width : 100%;
+            height : 100vh;
+            background-color: #161616;
+            transition : 1s;
+        }
+        .logo-header{
+            position : absolute;
+            top : 40%;
+            left : 50%;
+            transform : translate(-50%, -50%);
+            color : #fff;
+            font-family : "Allura", cursive;
+            font-weight : 600;
+            font-size : 3rem;
+        }
+        .color{
+            color : #fddc5c;
+        }
+        .logo{
+            position : relative;
+            display : inline-block;
+            bottom : -20px;
+            opacity : 0;
+        }
+        .logo.active{
+            bottom : 0;
+            opacity : 1;
+            transition : ease-in-out 0.5s;
+        }
+        .enter-btn{
+            background-color : #fff;
+            color : #161616;
+            display : flex;
+            align-items : center;
+            gap : 7px;
+            position : absolute;
+            top : 45%;
+            left : 50%;
+            transform : translate(-50%, -50%);
+            text-decoration : none;
+            font-size : 1.25rem;
+            font-family : "Poppins", sans-serif;
+            padding : 10px 20px;
+            border-radius : 10px;
+            border : 2px solid #fff;
+            transition : 0.7s ease;
+            opacity : 0;
+        }
+        .enter-btn:hover{
+            color : #fff;
+            background-color: #161616;
+        }
+        .enter-btn i{
+            font-size : 1rem;
+        }
+
+        @media screen and (max-width:460px){
+            .logo-header{
+                font-size : 2.5rem;
+            }
+        }
+        @media screen and (max-width:370px){
+            .logo-header{
+                font-size : 1.75rem;
+            }
+            .enter-btn{
+                font-size : 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h1 class="logo-header">
+            <span class="logo">i</span>
+            <span class="logo">n</span>
+            <span class="logo color">R</span>
+            <span class="logo color">o</span>
+            <span class="logo color">u</span>
+            <span class="logo color">t</span>
+            <span class="logo color">e</span>
+            <span class="logo color">s</span>
+            <span class="logo color">.</span>
+        </h1>
+        <a href="./travel.html" class="enter-btn">EXPLORE<i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <script src="https://kit.fontawesome.com/324d3bd86f.js" crossorigin="anonymous"></script>
+    <script>
+        let intro = document.querySelector('.intro');
+        let logo = document.querySelector('.logo-header');
+        let logoSpan = document.querySelectorAll('.logo');
+        let enterBtn = document.querySelector('.enter-btn');
+
+        window.addEventListener('DOMContentLoaded', ()=>{
+                logoSpan.forEach((span, i) => {
+                    setTimeout(() => {
+                        span.classList.add('active');
+                    }, (i+1)*300)
+                })
+
+            setTimeout(() => {
+                logoSpan.forEach((span, i) => {
+
+                    setTimeout(() => {
+                        span.classList.remove('active');
+                    }, (i+1)*50)
+                })
+            }, 3500);
+
+            setTimeout(() => {
+                enterBtn.style.opacity = "1";
+            }, 4200)
+        })
+    </script>
+</body>
+</html>
